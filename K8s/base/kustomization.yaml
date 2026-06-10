@@ -10,4 +10,5 @@ resources:
   - valkey
   - cart
   - checkout
+  - currency
   
