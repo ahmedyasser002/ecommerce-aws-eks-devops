@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: accountingservice-config
+data:
+  OTEL_COLLECTOR_NAME: "opentelemetry-demo-otelcol"
+  OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE: "cumulative"
+  KAFKA_SERVICE_ADDR: "kafka:9092"  
+  OTEL_RESOURCE_ATTRIBUTES: "service.name=kafka,service.namespace=opentelemetry-demo,service.version=1.12.0"

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: valkey-config
+data:
+  OTEL_SERVICE_NAME: "valkey"
+  OTEL_COLLECTOR_NAME: "opentelemetry-demo-otelcol"
+  OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE: "cumulative"
+  OTEL_RESOURCE_ATTRIBUTES: "service.name=valkey,service.namespace=opentelemetry-demo,service.version=1.12.0"

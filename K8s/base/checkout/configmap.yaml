@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: checkoutservice-config
+data:
+  OTEL_COLLECTOR_NAME: "opentelemetry-demo-otelcol"
+  OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE: "cumulative"
+  OTEL_EXPORTER_OTLP_ENDPOINT: "http://opentelemetry-demo-otelcol:4317"
+  OTEL_RESOURCE_ATTRIBUTES: "service.name=checkoutservice,service.namespace=opentelemetry-demo,service.version=1.12.0"
+  CHECKOUT_SERVICE_PORT: "8080"
+  CART_SERVICE_ADDR: "cartservice:8080"
+  CURRENCY_SERVICE_ADDR: "currencyservice:8080"
+  EMAIL_SERVICE_ADDR: "http://emailservice:8080"
+  PAYMENT_SERVICE_ADDR: "paymentservice:8080"
+  PRODUCT_CATALOG_SERVICE_ADDR: "productcatalogservice:8080"
+  SHIPPING_SERVICE_ADDR: "shippingservice:8080"
+  KAFKA_SERVICE_ADDR: "kafka:9092"
+  FLAGD_HOST: "opentelemetry-demo-flagd"
+  FLAGD_PORT: "8013"
