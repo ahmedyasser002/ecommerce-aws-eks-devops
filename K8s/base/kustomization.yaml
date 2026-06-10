@@ -12,4 +12,5 @@ resources:
   - checkout
   - currency
   - email
+  - flagd
   
