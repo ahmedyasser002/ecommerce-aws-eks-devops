@@ -16,4 +16,5 @@ resources:
   - frauddetection
   - frontend
   - imageprovider
+  - loadgenerator
   
