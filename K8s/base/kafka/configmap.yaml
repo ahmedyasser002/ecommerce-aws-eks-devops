@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kafka-config
+data:
+  OTEL_COLLECTOR_NAME: "opentelemetry-demo-otelcol"
+  OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE: "cumulative"
+  KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://kafka:9092"
+  KAFKA_HEAP_OPTS: "-Xmx400M -Xms400M"
+  OTEL_RESOURCE_ATTRIBUTES: "service.name=kafka,service.namespace=opentelemetry-demo,service.version=1.12.0"
+  OTEL_SDK_DISABLED: "true"
