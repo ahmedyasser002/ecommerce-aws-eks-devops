@@ -13,4 +13,5 @@ resources:
   - currency
   - email
   - flagd
+  - frauddetection
   
