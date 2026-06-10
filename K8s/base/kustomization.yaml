@@ -17,4 +17,5 @@ resources:
   - frontend
   - imageprovider
   - loadgenerator
+  - payment
   
