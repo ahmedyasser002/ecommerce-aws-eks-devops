@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: adservice
+  labels:
+    app: adservice
+    app.kubernetes.io/part-of: opentelemetry-demo
+spec:
+  type: ClusterIP
+  selector:
+    app: adservice
+  ports:
+    - name: tcp-service
+      port: 8080
+      targetPort: 8080
