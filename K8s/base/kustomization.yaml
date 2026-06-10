@@ -18,4 +18,6 @@ resources:
   - imageprovider
   - loadgenerator
   - payment
+  - productcatalog
+
   
