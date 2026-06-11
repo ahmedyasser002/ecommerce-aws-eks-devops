@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frauddetectionservice
+  labels:
+    app: frauddetectionservice
+    app.kubernetes.io/version: "1.12.0"
+    app.kubernetes.io/part-of: opentelemetry-demo
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: frauddetectionservice
+  template:
+    metadata:
+      labels:
+        app: frauddetectionservice
+    spec:
+      initContainers:
+        - name: wait-for-kafka
+          image: busybox:latest
+          command:
+            - sh
+            - -c
+            - |
+              RETRIES=0
+              MAX_RETRIES=30
+              until nc -z kafka 9092; do
+                RETRIES=$((RETRIES + 1))
+                if [ $RETRIES -eq $MAX_RETRIES ]; then
+                  echo "Kafka not available after $MAX_RETRIES attempts. Giving up."
+                  exit 1
+                fi
+                echo "Waiting for Kafka... attempt $RETRIES/$MAX_RETRIES"
+                sleep 5
+              done
+              echo "Kafka is ready!"
+      containers:
+        - name: frauddetectionservice
+          image: ghcr.io/open-telemetry/demo:1.12.0-frauddetectionservice
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: frauddetectionservice-config
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "150Mi"
+            limits:
+              cpu: "200m"
+              memory: "300Mi"

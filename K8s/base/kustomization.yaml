@@ -10,4 +10,23 @@ resources:
   - valkey
   - cart
   - checkout
+  - currency
+  - email
+  - flagd
+  - frauddetection
+  - frontend
+  - imageprovider
+  - loadgenerator
+  - payment
+  - productcatalog
+  - quote
+  - recommendation
+  - shipping
+  - llm
+  - postgres
+  - productreview
+  - frontendproxy
+
+
+
   

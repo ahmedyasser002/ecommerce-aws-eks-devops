@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadgenerator
+  labels:
+    app: loadgenerator
+    app.kubernetes.io/part-of: opentelemetry-demo
+spec:
+  type: ClusterIP
+  selector:
+    app: loadgenerator
+  ports:
+    - name: tcp-service
+      port: 8089
+      targetPort: 8089

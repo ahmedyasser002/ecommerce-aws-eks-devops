@@ -5,5 +5,5 @@ resources:
   - deployment.yaml
   - service.yaml
   - configmap.yaml
-  - sealed-secret.yaml
-  - pvc.yaml
+  - flagd-flags-configmap.yaml
+  - hpa.yaml

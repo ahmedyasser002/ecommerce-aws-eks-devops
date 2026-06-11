@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flagd-config
+data:
+  OTEL_SERVICE_NAME: "flagd"
+  OTEL_COLLECTOR_NAME: "opentelemetry-demo-otelcol"
+  OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE: "cumulative"
+  FLAGD_METRICS_EXPORTER: "otel"
+  FLAGD_OTEL_COLLECTOR_URI: "opentelemetry-demo-otelcol:4317"
+  OTEL_RESOURCE_ATTRIBUTES: "service.name=flagd,service.namespace=opentelemetry-demo,service.version=1.12.0"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flagdui-config
+data:
+  OTEL_SERVICE_NAME: "flagdui"
+  OTEL_COLLECTOR_NAME: "opentelemetry-demo-otelcol"
+  OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE: "cumulative"
+  OTEL_EXPORTER_OTLP_ENDPOINT: "http://opentelemetry-demo-otelcol:4318"
+  FLAGD_METRICS_EXPORTER: "otel"
+  OTEL_RESOURCE_ATTRIBUTES: "service.name=flagdui,service.namespace=opentelemetry-demo,service.version=1.12.0"

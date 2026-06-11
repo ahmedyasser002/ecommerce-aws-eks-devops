@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: imageprovider
+  labels:
+    app: imageprovider
+    app.kubernetes.io/part-of: opentelemetry-demo
+spec:
+  type: ClusterIP
+  selector:
+    app: imageprovider
+  ports:
+    - name: tcp-service
+      port: 8081
+      targetPort: 8081
