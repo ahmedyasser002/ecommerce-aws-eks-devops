@@ -19,5 +19,9 @@ resources:
   - loadgenerator
   - payment
   - productcatalog
+  - quote
+  - recommendation
+  - shipping
+
 
   
