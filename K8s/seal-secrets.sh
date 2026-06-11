@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Script to seal all secrets in base directories using kubeseal
-# Prerequisites:
-#   1. Kubernetes cluster running
-#   2. Sealed Secrets controller installed (https://github.com/bitnami-labs/sealed-secrets)
-#   3. kubeseal CLI installed: brew install kubeseal
-
 set -e
 
 KUSTOMIZE_BASE_DIR="base"
@@ -22,7 +16,7 @@ for secret_file in $(find "$KUSTOMIZE_BASE_DIR" -name 'secret.yaml' -type f | so
   dir=$(dirname "$secret_file")
   sealed_file="$dir/sealed-secret.yaml"
   
-  echo "📦 Processing: $secret_file"
+  echo "Processing: $secret_file"
   
   if kubeseal \
     --format yaml \
