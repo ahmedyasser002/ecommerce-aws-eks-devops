@@ -6,3 +6,4 @@ resources:
   - service.yaml
   - configmap.yaml
   - flagd-flags-configmap.yaml
+  - hpa.yaml

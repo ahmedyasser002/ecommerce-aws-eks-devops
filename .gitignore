@@ -27,4 +27,7 @@ plan.out
 .terraformrc
 terraform.rc
 
+#K8s secret.yaml files
+K8s/base/*/secret.yaml
+
 .DS_Store

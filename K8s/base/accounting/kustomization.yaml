@@ -4,4 +4,5 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - configmap.yaml
-  - secret.yaml
+  - sealed-secret.yaml
+  - hpa.yaml

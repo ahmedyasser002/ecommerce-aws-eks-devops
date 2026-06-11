@@ -3,7 +3,8 @@ kind: Kustomization
 namespace: ecommerce-prod
 
 resources:
+  - namespace.yaml
   - ../../base
 
-patchesStrategicMerge:
-  - alb-ingress-patch.yaml
+patches:
+  - path: alb-ingress-patch.yaml
