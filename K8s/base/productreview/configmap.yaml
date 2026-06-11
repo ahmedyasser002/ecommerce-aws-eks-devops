@@ -9,12 +9,13 @@ data:
   OTEL_RESOURCE_ATTRIBUTES: "service.name=productreviewservice,service.namespace=opentelemetry-demo,service.version=1.12.0"
   OTEL_PYTHON_LOG_CORRELATION: "true"
   PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION: "python"
+
   LLM_BASE_URL: "http://llmservice:8080/v1"
   LLM_MODEL: "mock"
-  PRODUCT_REVIEW_SERVICE_PORT: "8080"
-  DB_CONNECTION_STRING: "postgresql://otel:otel@postgresql:5432/otel"
   LLM_HOST: "llmservice"
   LLM_PORT: "8080"
-  OPENAI_API_KEY: "------"
-  PRODUCT_CATALOG_ADDR: "http://productcatalogservice:8080" 
+
+  PRODUCT_CATALOG_ADDR: "http://productcatalogservice:8080"
+
+  PRODUCT_REVIEW_SERVICE_PORT: "8080"
   PRODUCT_REVIEWS_PORT: "8080"
