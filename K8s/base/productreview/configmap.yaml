@@ -13,3 +13,8 @@ data:
   LLM_MODEL: "mock"
   PRODUCT_REVIEW_SERVICE_PORT: "8080"
   DB_CONNECTION_STRING: "postgresql://otel:otel@postgresql:5432/otel"
+  LLM_HOST: "llmservice"
+  LLM_PORT: "8080"
+  OPENAI_API_KEY: "------"
+  PRODUCT_CATALOG_ADDR: "http://productcatalogservice:8080" 
+  PRODUCT_REVIEWS_PORT: "8080"
