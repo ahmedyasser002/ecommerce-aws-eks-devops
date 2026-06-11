@@ -4,3 +4,6 @@ namespace: ecommerce-prod
 
 resources:
   - ../../base
+
+patchesStrategicMerge:
+  - alb-ingress-patch.yaml

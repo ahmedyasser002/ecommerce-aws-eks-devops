@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paymentservice
+spec:
+  template:
+    spec:
+      containers:
+        - name: paymentservice
+          resources:
+            requests:
+              cpu: "25m"
+              memory: "50Mi"
+            limits:
+              cpu: "50m"
+              memory: "100Mi"
