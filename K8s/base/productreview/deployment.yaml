@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productreviewservice
+  labels:
+    app: productreviewservice
+    app.kubernetes.io/version: "1.12.0"
+    app.kubernetes.io/part-of: opentelemetry-demo
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: productreviewservice
+  template:
+    metadata:
+      labels:
+        app: productreviewservice
+    spec:
+      initContainers:
+        - name: wait-for-postgresql
+          image: busybox:latest
+          command:
+            - sh
+            - -c
+            - |
+              RETRIES=0
+              MAX_RETRIES=30
+              until nc -z postgresql 5432; do
+                RETRIES=$((RETRIES + 1))
+                if [ $RETRIES -eq $MAX_RETRIES ]; then
+                  echo "PostgreSQL not available after $MAX_RETRIES attempts. Giving up."
+                  exit 1
+                fi
+                echo "Waiting for PostgreSQL... attempt $RETRIES/$MAX_RETRIES"
+                sleep 5
+              done
+              echo "PostgreSQL is ready!"
+      containers:
+        - name: productreviewservice
+          image: ghcr.io/open-telemetry/demo:latest-product-reviews
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: service
+          envFrom:
+            - configMapRef:
+                name: productreviewservice-config
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-secret
+                  key: DATABASE_URL
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "100Mi"
+            limits:
+              cpu: "200m"
+              memory: "200Mi"
