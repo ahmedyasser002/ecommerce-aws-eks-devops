@@ -25,6 +25,7 @@ resources:
   - llm
   - postgres
   - productreview
+  - frontendproxy
 
 
 
