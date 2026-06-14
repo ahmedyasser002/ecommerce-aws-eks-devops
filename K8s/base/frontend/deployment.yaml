@@ -28,6 +28,20 @@ spec:
           ports:
             - containerPort: 8080
               name: service
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 15
+            failureThreshold: 5
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            failureThreshold: 3
           envFrom:
             - configMapRef:
                 name: frontend-config

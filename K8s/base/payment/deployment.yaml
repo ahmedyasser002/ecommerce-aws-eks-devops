@@ -28,6 +28,18 @@ spec:
           ports:
             - containerPort: 8080
               name: service
+          livenessProbe:
+            grpc:
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            grpc:
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 3
           envFrom:
             - configMapRef:
                 name: paymentservice-config

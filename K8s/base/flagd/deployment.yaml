@@ -44,6 +44,22 @@ spec:
           ports:
             - containerPort: 8013
               name: flagd-service
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8014
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8014
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
           envFrom:
             - configMapRef:
                 name: flagd-config
