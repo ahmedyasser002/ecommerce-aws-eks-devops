@@ -19,27 +19,8 @@ data:
         pipeline_stages:
           - docker: {}
 
-        kubernetes_sd_configs:
-          - role: pod
-
-        relabel_configs:
-          - source_labels: [__meta_kubernetes_pod_node_name]
-            target_label: node
-
-          - source_labels: [__meta_kubernetes_namespace]
-            target_label: namespace
-
-          - source_labels: [__meta_kubernetes_pod_name]
-            target_label: pod
-
-          - source_labels: [__meta_kubernetes_pod_container_name]
-            target_label: container
-
-          - action: replace
-            source_labels:
-              - __meta_kubernetes_pod_uid
-              - __meta_kubernetes_pod_container_name
-            separator: /
-            regex: (.+)/(.+)
-            target_label: __path__
-            replacement: /var/log/pods/*$1/$2/*.log
+        static_configs:
+          - targets: ['localhost']
+            labels:
+              job: kubernetes-pods
+              __path__: /var/log/containers/*.log
