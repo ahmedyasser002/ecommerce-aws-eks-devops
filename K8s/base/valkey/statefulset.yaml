@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: valkey
   labels:
@@ -7,6 +7,7 @@ metadata:
     app.kubernetes.io/version: "1.12.0"
     app.kubernetes.io/part-of: opentelemetry-demo
 spec:
+  serviceName: valkey-headless
   replicas: 1
   revisionHistoryLimit: 10
   selector:
@@ -51,7 +52,13 @@ spec:
               port: 6379
             initialDelaySeconds: 5
             periodSeconds: 5
-      volumes:
-        - name: valkey-data
-          persistentVolumeClaim:
-            claimName: valkey-data
+  volumeClaimTemplates:
+    - metadata:
+        name: valkey-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        storageClassName: standard
+        resources:
+          requests:
+            storage: 1Gi
