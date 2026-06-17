@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
   - statefulset.yaml
   - service.yaml
-  - pvc.yaml
+  - postgres-headless-service.yaml
   - sealed-secret.yaml
