@@ -6,3 +6,4 @@ resources:
   - service.yaml
   - valkey-headless-service.yaml
   - configmap.yaml
+  - serviceaccount.yaml

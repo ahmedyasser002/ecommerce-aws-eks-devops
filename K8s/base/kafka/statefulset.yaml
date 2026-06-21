@@ -17,6 +17,8 @@ spec:
       labels:
         app: kafka
     spec:
+      serviceAccountName: kafka
+      automountServiceAccountToken: false
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000

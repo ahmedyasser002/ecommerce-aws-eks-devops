@@ -17,6 +17,8 @@ spec:
       labels:
         app: paymentservice
     spec:
+      serviceAccountName: paymentservice
+      automountServiceAccountToken: false
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000

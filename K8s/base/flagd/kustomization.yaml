@@ -7,3 +7,4 @@ resources:
   - configmap.yaml
   - flagd-flags-configmap.yaml
   - hpa.yaml
+  - serviceaccount.yaml

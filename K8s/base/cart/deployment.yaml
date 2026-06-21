@@ -17,6 +17,8 @@ spec:
       labels:
         app: cartservice
     spec:
+      serviceAccountName: cartservice
+      automountServiceAccountToken: false
       initContainers:
         - name: wait-for-valkey
           image: busybox:latest

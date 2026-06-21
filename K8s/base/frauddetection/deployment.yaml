@@ -17,6 +17,8 @@ spec:
       labels:
         app: frauddetectionservice
     spec:
+      serviceAccountName: frauddetectionservice
+      automountServiceAccountToken: false
       initContainers:
         - name: wait-for-kafka
           image: busybox:latest

@@ -17,6 +17,8 @@ spec:
       labels:
         app: emailservice
     spec:
+      serviceAccountName: emailservice
+      automountServiceAccountToken: false
       containers:
         - name: emailservice
           image: ghcr.io/open-telemetry/demo:1.12.0-emailservice
