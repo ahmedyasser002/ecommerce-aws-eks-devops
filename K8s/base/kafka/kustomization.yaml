@@ -7,3 +7,4 @@ resources:
   - kafka-headless-service.yaml
   - configmap.yaml
   - sealed-secret.yaml
+  - serviceaccount.yaml

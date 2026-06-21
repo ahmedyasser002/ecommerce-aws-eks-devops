@@ -12,6 +12,8 @@ spec:
       labels:
         app: opentelemetry-demo-otelcol
     spec:
+      serviceAccountName: opentelemetry-demo-otelcol
+      automountServiceAccountToken: false
       containers:
         - name: otelcol
           image: otel/opentelemetry-collector-contrib:latest

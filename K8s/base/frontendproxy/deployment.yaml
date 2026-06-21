@@ -17,6 +17,8 @@ spec:
       labels:
         app: frontendproxy
     spec:
+      serviceAccountName: frontendproxy
+      automountServiceAccountToken: false
       securityContext:
         runAsNonRoot: true
         runAsUser: 101

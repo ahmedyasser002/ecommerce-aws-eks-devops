@@ -8,3 +8,5 @@ resources:
 
 patches:
   - path: alb-ingress-patch.yaml
+  - path: patches/frontend-deployment.yaml
+

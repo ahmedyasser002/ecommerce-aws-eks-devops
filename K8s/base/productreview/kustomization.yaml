@@ -7,3 +7,4 @@ resources:
   - configmap.yaml
   - sealed-secret.yaml
   - hpa.yaml
+  - serviceaccount.yaml

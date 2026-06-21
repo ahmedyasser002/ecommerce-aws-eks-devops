@@ -17,6 +17,8 @@ spec:
       labels:
         app: flagd
     spec:
+      serviceAccountName: flagd
+      automountServiceAccountToken: false
       initContainers:
         - name: init-config
           image: busybox:latest

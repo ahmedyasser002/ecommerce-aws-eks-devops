@@ -17,6 +17,8 @@ spec:
       labels:
         app: llmservice
     spec:
+      serviceAccountName: llmservice
+      automountServiceAccountToken: false
       containers:
         - name: llmservice
           image: ghcr.io/open-telemetry/demo:latest-llm

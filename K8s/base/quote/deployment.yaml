@@ -17,6 +17,8 @@ spec:
       labels:
         app: quoteservice
     spec:
+      serviceAccountName: quoteservice
+      automountServiceAccountToken: false
       securityContext:
         runAsNonRoot: true
         runAsUser: 33

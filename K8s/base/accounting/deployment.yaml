@@ -17,6 +17,8 @@ spec:
       labels:
         app: accountingservice
     spec:
+      serviceAccountName: accountingservice
+      automountServiceAccountToken: false
       initContainers:
         - name: wait-for-kafka
           image: busybox:latest

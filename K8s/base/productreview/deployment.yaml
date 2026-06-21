@@ -17,6 +17,8 @@ spec:
       labels:
         app: productreviewservice
     spec:
+      serviceAccountName: productreviewservice
+      automountServiceAccountToken: false
       initContainers:
         - name: wait-for-postgresql
           image: busybox:latest

@@ -17,6 +17,8 @@ spec:
       labels:
         app: checkoutservice
     spec:
+      serviceAccountName: checkoutservice
+      automountServiceAccountToken: false
       initContainers:
         - name: wait-for-kafka
           image: busybox:latest
