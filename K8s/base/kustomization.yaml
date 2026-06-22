@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: ecommerce-dev
 
 resources:
+  # - default-deny-all.yaml
   - kafka
   - accounting
   - ad

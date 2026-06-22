@@ -6,4 +6,5 @@ resources:
   - service.yaml
   - postgres-headless-service.yaml
   - sealed-secret.yaml
+  - networkpolicy.yaml
   - serviceaccount.yaml

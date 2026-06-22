@@ -1,0 +1,56 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: flagd
+spec:
+  podSelector:
+    matchLabels:
+      app: flagd
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: adservice
+        - podSelector:
+            matchLabels:
+              app: cartservice
+        - podSelector:
+            matchLabels:
+              app: checkoutservice
+        - podSelector:
+            matchLabels:
+              app: frauddetectionservice
+        - podSelector:
+            matchLabels:
+              app: frontend
+        - podSelector:
+            matchLabels:
+              app: loadgenerator
+        - podSelector:
+            matchLabels:
+              app: paymentservice
+        - podSelector:
+            matchLabels:
+              app: productcatalogservice
+        - podSelector:
+            matchLabels:
+              app: recommendationservice
+      ports:
+        - port: 8013
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app: opentelemetry-demo-otelcol
+      ports:
+        - port: 4318
+    - to:
+        - namespaceSelector: {}
+      ports:
+        - port: 53
+          protocol: UDP
+        - port: 53
+          protocol: TCP
