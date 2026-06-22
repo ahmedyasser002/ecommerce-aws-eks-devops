@@ -1,0 +1,50 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: frontendproxy
+spec:
+  podSelector:
+    matchLabels:
+      app: frontendproxy
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: loadgenerator
+      ports:
+        - port: 8080
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app: frontend
+      ports:
+        - port: 8080
+    - to:
+        - podSelector:
+            matchLabels:
+              app: imageprovider
+      ports:
+        - port: 8080
+    - to:
+        - podSelector:
+            matchLabels:
+              app: flagd
+      ports:
+        - port: 8013
+    - to:
+        - podSelector:
+            matchLabels:
+              app: opentelemetry-demo-otelcol
+      ports:
+        - port: 4317
+    - to:
+        - namespaceSelector: {}
+      ports:
+        - port: 53
+          protocol: UDP
+        - port: 53
+          protocol: TCP

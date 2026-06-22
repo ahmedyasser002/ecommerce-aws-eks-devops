@@ -6,5 +6,6 @@ resources:
   - service.yaml
   - kafka-headless-service.yaml
   - configmap.yaml
+  - networkpolicy.yaml
   - sealed-secret.yaml
   - serviceaccount.yaml
