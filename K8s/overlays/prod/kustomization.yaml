@@ -5,8 +5,9 @@ namespace: ecommerce-prod
 resources:
   - namespace.yaml
   - ../../base
+  - pdb/
 
 patches:
-  - path: alb-ingress-patch.yaml
+  - path: patches/alb-ingress-patch.yaml
   - path: patches/frontend-deployment.yaml
 
