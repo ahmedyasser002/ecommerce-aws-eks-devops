@@ -1,0 +1,79 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: frontend
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: frontend
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: frontendproxy       
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: frontendproxy
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: cartservice
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: cartservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: checkoutservice
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: checkoutservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: productcatalogservice
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: productcatalogservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: paymentservice
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: paymentservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: currencyservice
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: currencyservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: shippingservice
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: shippingservice

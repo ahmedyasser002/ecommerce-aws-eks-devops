@@ -1,0 +1,179 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: frontend
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: frontend
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: frontendproxy
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: frontendproxy
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: cartservice
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: cartservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: checkoutservice
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: checkoutservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: productcatalogservice
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: productcatalogservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: paymentservice
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: paymentservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: adservice
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: adservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: recommendationservice
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: recommendationservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: currencyservice
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: currencyservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: shippingservice
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: shippingservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: quoteservice
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: quoteservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: emailservice
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: emailservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: flagd
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: flagd
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: productreviewservice
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: productreviewservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: llmservice
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: llmservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: accountingservice
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: accountingservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: frauddetectionservice
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: frauddetectionservice
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: imageprovider
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: imageprovider

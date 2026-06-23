@@ -1,0 +1,29 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: kafka
+spec:
+  maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: kafka
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: valkey
+spec:
+  maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: valkey
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: postgresql
+spec:
+  maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: postgresql
